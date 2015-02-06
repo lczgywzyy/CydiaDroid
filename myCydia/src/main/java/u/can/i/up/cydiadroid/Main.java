@@ -1,17 +1,6 @@
 package u.can.i.up.cydiadroid;
 
-import java.lang.reflect.Method;
-
-import android.app.PendingIntent;
-import android.content.res.Resources;
-import android.os.Environment;
-import android.util.Log;
-
-import com.saurik.substrate.MS;
-
-import u.can.i.up.hook.ExternStorageHook;
-import u.can.i.up.hook.MyHook;
-import u.can.i.up.hook.ResHook;
+import u.can.i.up.hook.MyHelloWorldHook;
 
 public class Main {
 
@@ -21,6 +10,6 @@ public class Main {
 
 //        ResHook.ResHookStart();
 //        ExternStorageHook.ExternStorageHookStart();
-        MyHook.MyHookStart();
+        MyHelloWorldHook.MyHookStart();
     }
 }
