@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk1.7.0_71\bin\javah" -classpath myCydia\src\main\java -d myjni\src\main\jni u.can.i.up.cydiadroid.Main

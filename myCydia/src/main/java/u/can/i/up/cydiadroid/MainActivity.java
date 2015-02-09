@@ -14,9 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
+
 	private static final String TAG = "cydiahook.MainActivity";
 	public static boolean isManualTrigger = false;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

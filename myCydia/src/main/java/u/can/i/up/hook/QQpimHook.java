@@ -4,30 +4,26 @@ import android.util.Log;
 
 import com.saurik.substrate.MS;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
-import u.can.i.up.cydiadroid.Main;
 
 /**
  * Created by lczgywzyy on 2015/2/4.
  */
-public class MyHelloWorldHook {
-
-    public static void MyHookStart(){
-        MS.hookClassLoad("u.can.i.up.helloworld.MyHelloWorld",
+public class QQpimHook {
+    public static void QQpimHookStart(){
+        MS.hookClassLoad("com.tencent.qqpim.sdk.h.a.a",
                 new MS.ClassLoadHook() {
                     public void classLoaded(Class<?> myinstance) {
                         Method MyCallFunc;
                         try {
-                            MyCallFunc = myinstance.getMethod("myRealCall", new Class<?>[0]);
+                            MyCallFunc = myinstance.getMethod("a");
                         } catch (NoSuchMethodException e) {
                             MyCallFunc = null;
                             e.printStackTrace();
                         }
                         MS.hookMethod(myinstance, MyCallFunc, new MS.MethodAlteration() {
                                 public Object invoked(Object obj, Object... args) throws Throwable {
-                                    Log.i("UCanIUp", "MyCALLLLLLLLLLLLLLLLLLLLL!");
+                                    Log.i("UCanIUp", "QQpimHook Succeeddddddddddddddddddd!");
                                     return invoke(obj, args);
                                 }
                             });
