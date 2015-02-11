@@ -20,7 +20,8 @@ public class MyHelloWorldHook {
                     public void classLoaded(Class<?> myinstance) {
                         Method MyCallFunc;
                         try {
-                            MyCallFunc = myinstance.getMethod("myRealCall", new Class<?>[0]);
+                            MyCallFunc = myinstance.getDeclaredMethod("myRealCall", new Class<?>[0]);
+                            MyCallFunc.setAccessible(true);
                         } catch (NoSuchMethodException e) {
                             MyCallFunc = null;
                             e.printStackTrace();
