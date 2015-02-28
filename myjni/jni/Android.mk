@@ -9,5 +9,5 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := plum.cy
 LOCAL_SRC_FILES := plum.cpp
 #LOCAL_SHARED_LIBRARIES := substrate-dvm
-LOCAL_LDLIBS:= -L$(LOCAL_PATH) -lsubstrate-dvm
+LOCAL_LDLIBS:= -L$(LOCAL_PATH) -lsubstrate -lsubstrate-dvm -llog
 include $(BUILD_SHARED_LIBRARY)
