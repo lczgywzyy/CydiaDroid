@@ -1,6 +1,7 @@
 package u.can.i.up.cydiadroid;
 
 import u.can.i.up.hook.ClassLoaderHook;
+import u.can.i.up.hook.DadroidHook;
 import u.can.i.up.hook.MyHelloWorldHook;
 import u.can.i.up.hook.QQpimHook;
 
@@ -15,5 +16,6 @@ public class Main {
 //        MyHelloWorldHook.MyHookStart();
 //        QQpimHook.QQpimHookStart();
 //        ClassLoaderHook.MyHookStart();
+        DadroidHook.DadroidHookStart();
     }
 }

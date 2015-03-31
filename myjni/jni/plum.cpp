@@ -85,5 +85,6 @@ static void DexloadHook(){
 MSInitialize {
     //MSJavaHookClassLoad(NULL, "android/content/res/Resources", &OnResources);
     //MSJavaHookClassLoad(NULL, "u/can/i/up/helloworld/MyHelloWorld", &OnMyHelloWorld);
+    //_Z21javaLangString_equalsjjjjP6JValue
     DexloadHook();
 }
