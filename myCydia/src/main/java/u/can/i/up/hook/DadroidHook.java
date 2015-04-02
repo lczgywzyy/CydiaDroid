@@ -54,8 +54,15 @@ public class DadroidHook {
                         Log.i("UCanIUp", "First Param's length:" + firstParam.length);
                         Log.i("UCanIUp", "Second Param's length:" + secondParam.length);
 
-                        for (int i = 0; i < secondParam.length; i ++){
-                            Log.i("UCanIUp", "" + (int)secondParam[i]);
+                        for (int i = 0; i < firstParam.length; i ++){
+                            Log.i("UCanIUp", "" + (int)firstParam[i]);
+                        }
+                        String t = new String("asd");
+                        char[] tchar = t.toCharArray();
+                        if((new String(tchar)).equals(new String(firstParam))){
+                            Log.i("UCanIUp", "!");
+                        } else{
+                            Log.i("UCanIUp", "?");
                         }
 
 //                        String utf16String = new String(secondParam);
