@@ -23,26 +23,26 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-//		updateSDMountedStatus();
-//
-//		Button btnMountSd = (Button)this.findViewById(R.id.button1);
-//		btnMountSd.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View arg0) {
-//				isManualTrigger = true;
-//
-//				if (!isMounted()) {
-//					mountAFakeSD();
-//				}
-//				else {
-//					Toast toast = Toast.makeText(MainActivity.this, "SD card has been mounted", Toast.LENGTH_SHORT);
-//					toast.show();
-//				}
-//
-//				updateSDMountedStatus();
-//			}
-//		});
+		updateSDMountedStatus();
+
+		Button btnMountSd = (Button)this.findViewById(R.id.button1);
+		btnMountSd.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				isManualTrigger = true;
+
+				if (!isMounted()) {
+					mountAFakeSD();
+				}
+				else {
+					Toast toast = Toast.makeText(MainActivity.this, "SD card has been mounted", Toast.LENGTH_SHORT);
+					toast.show();
+				}
+
+				updateSDMountedStatus();
+			}
+		});
 	}
 
 	private void updateSDMountedStatus()
