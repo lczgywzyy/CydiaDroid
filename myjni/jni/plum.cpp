@@ -2,6 +2,7 @@
 #include <jni.h>
 #include <stdio.h>
 #include "substrate.h"
+#include "DexFile.h"
 
 #define LOG_TAG "UCanIUpJni"
 #define LOGI(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
@@ -88,6 +89,8 @@ int mydvmdexfileopen(void* pDexFile, const void* data) {
 //    LOGI("call my dvm dex!!:%d", getpid());
     LOGI("call my dvm dex!!");
     olddexfileopen(pDexFile,data);
+
+    DexFile* pdf = (DexFile*)pDexFile;
     { //write to file
         char buf[200] = "/sdcard/dex1.dex";
         //sprintf(buf,"/sdcard/dex.%d",random());
@@ -97,7 +100,7 @@ int mydvmdexfileopen(void* pDexFile, const void* data) {
             LOGD("error[DEX] open sdcard file to write");
          }
          else{
-             fwrite(data,1,1000,f);
+             fwrite(pdf->pHeader,1,1000,f);
              fclose(f);
          }
     }
