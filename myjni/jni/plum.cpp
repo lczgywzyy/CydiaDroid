@@ -48,7 +48,7 @@ int mydvmodexfileopen(const void * addr,int len, void ** dvmdex) {
     LOGI("call my dvm odex!!");
     { //write to file
         char buf[200];
-        sprintf(buf,"/sdcard/odex.%d",random());
+        sprintf(buf,"/sdcard/odex/odex.%d", getpid());
         //export the dex
         FILE * f=fopen(buf,"wb");
          if(!f) {
@@ -87,20 +87,26 @@ static void ODexloadHook(){
 int (* olddexfileopen)(void* pDexFile, const void* data);
 int mydvmdexfileopen(void* pDexFile, const void* data) {
 //    LOGI("call my dvm dex!!:%d", getpid());
-    LOGI("call my dvm dex!!");
+    LOGI("call my dvm dex!!%d", getpid());
     olddexfileopen(pDexFile,data);
 
     DexFile* pdf = (DexFile*)pDexFile;
+    DexHeader* mDexHeader = (DexHeader*)pdf->pHeader;
+    pdf->pStringIds;
     { //write to file
-        char buf[200] = "/sdcard/dex1.dex";
-        //sprintf(buf,"/sdcard/dex.%d",random());
-        //export the dex
+        char buf[200] = {'\0'};
+        sprintf(buf,"/sdcard/dex/dex.%d", getpid());
+//        export the dex
         FILE * f=fopen(buf,"wb");
          if(!f) {
             LOGD("error[DEX] open sdcard file to write");
          }
          else{
-             fwrite(pdf->pHeader,1,1000,f);
+//             fwrite(mDexHeader, 1, mDexHeader->headerSize,f);
+//             fwrite(pdf->pStringIds, 1, mDexHeader->stringIdsSize * 4, f);
+             LOGI("pStringIds:%d", pdf->pStringIds);
+             LOGI("stringIdsSize:%d", mDexHeader->stringIdsSize);
+             fwrite(data, 1, 10000, f);
              fclose(f);
          }
     }
