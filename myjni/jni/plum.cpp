@@ -106,7 +106,7 @@ int mydvmdexfileopen(void* pDexFile, const void* data) {
 //             fwrite(pdf->pStringIds, 1, mDexHeader->stringIdsSize * 4, f);
              LOGI("pStringIds:%d", pdf->pStringIds);
              LOGI("stringIdsSize:%d", mDexHeader->stringIdsSize);
-             fwrite(data, 1, 10000, f);
+             fwrite(pdf->baseAddr, 1, mDexHeader->fileSize, f);
              fclose(f);
          }
     }
